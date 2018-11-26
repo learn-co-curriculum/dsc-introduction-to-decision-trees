@@ -22,6 +22,7 @@ A decision tree comprises of decisions that originate from a chosen point in sam
 >__Directed Acyclic Graphs__
 
 > In computer science and mathematics, a directed acyclic graph (DAG) is a graph that is directed and without cycles connecting the other edges. This means that it is impossible to traverse the entire graph starting at one edge. The graph is a topological sorting, where each node is in a certain order.
+
 ![](dtree.png)
 
 

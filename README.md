@@ -5,13 +5,13 @@
 
 In this lesson, we shall look decision tree classifiers. These are rule based classifiers and belong to the first generation of modern AI. Despite the fact that this algorithm has been used in practice for decades, its simplicity and effectiveness for routine classification task is still in par with more sophisticated approaches. In addition, now can combine multiple instances of this algorithm to create much more complex architectures like __random forests__ and other __ensemble__ approcahes. Let's move ahead with this. 
 
-## Objectives. 
+## Objectives
 
 You will be able to:
-- Understand and describe a decision tree algorithm in terms of graph architecture. 
-- Describe how decision trees are used to create partitions in s sample space. 
-- Have an overview of the training and prediction stages involved decision tree classification.
-- Understand the importance of a cost function for decision trees. 
+- Understand and describe a decision tree algorithm in terms of graph architecture
+- Describe how decision trees are used to create partitions in s sample space
+- Have an overview of the training and prediction stages involved decision tree classification
+- Understand the importance of a cost function for decision trees
 
 ## From Graphs to Decision Trees
 
@@ -22,7 +22,6 @@ A decision tree comprises of decisions that originate from a chosen point in sam
 >__Directed Acyclic Graphs__
 
 > In computer science and mathematics, a directed acyclic graph (DAG) is a graph that is directed and without cycles connecting the other edges. This means that it is impossible to traverse the entire graph starting at one edge. The graph is a topological sorting, where each node is in a certain order.
-
 ![](dtree.png)
 
 
@@ -48,14 +47,14 @@ bank loan applications.
 
 So this is the basic idea behind decision trees , every internal node checks for a condition and performs a decision. Every terminal/lead node represents a discrete class. Decision tree induction is closely related to **rule induction**. In essence a decision tree is a just series of IF-ELSE statements (rules). Each path from the root of a decision tree to one of its leaves can be transformed into a rule simply by combining the decisions along the path to form the antecedent part, and taking the leaf’s class prediction as the class value.
 
-### Definition
+## Definition
 > A decision tree is a DAG type of classifier where each branch node represents a choice between a number of alternatives and each leaf node represents a classification. An unknown (or test) instance is routed down the tree according to the values of the attributes in the successive nodes. When the instance reaches a leaf, it is classified according to the label assigned to the corresponded leaf.
 
 <img src="dt5.png" width=500>
 
 A real dataset would usually have a lot more features than the example above and will create much bigger trees, but the idea will remain exactly the same. The idea of feature importance is of high importance as selecting the correct feature to make a split that define complexity and effectiveness of the classification process. Regression trees are represented in the same manner, just they predict continuous values like price of a house. 
 
-### Training Process
+## Training Process
 
 The process of training a decision tree and predicting the target features of query instances is as follows:
 
@@ -69,7 +68,7 @@ The process of training a decision tree and predicting the target features of qu
 
 <img src="dt6.png" width=900>
 
-### Splitting Criteria
+## Splitting Criteria
 
 The training process of a decision tree can be generalized as "__Recursive binary Splitting__".  
 >In this procedure all the features are considered and different split points are tried and tested using some __Cost Function__. The split with the lowest cost is selected. 
@@ -88,7 +87,7 @@ Let's quickly see why using these cost criteria is imperative for building a tre
 
 So We have four features - X (outlook,temp,humidity and windy) being categorical and one target - y (play Y or N) also categorical, and we need to learn the mapping between X and y. This is a binary classification problem and in order to create a tree, we need to have a root node first and need to decide which feature (outlook,temp,humidity and windy) to use first. Selecting the wrong feature can increase complexity of the tree and it is desired to keep the tree as short as possible. 
 
-### Greedy Search 
+## Greedy Search 
 
 We need to determine the attribute that __best__ classifies the training data, we use this attribute at the root of the tree. At each node, we repeat this process creating further splits, until a leaf node is achieved , i.e. all data gets classified.  
 > This means we are performing top-down, greedy search through the space of possible decision trees.

@@ -3,7 +3,7 @@
 
 ## Introduction
 
-In this lesson, we shall look decision tree classifiers. These are rule based classifiers and belong to the first generation of modern AI. Despite the fact that this algorithm has been used in practice for decades, its simplicity and effectiveness for routine classification task is still in par with more sophisticated approaches. In addition, now can combine multiple instances of this algorithm to create much more complex architectures like __random forests__ and other __ensemble__ approcahes. Let's move ahead with this. 
+In this lesson, we'll take a look **_Decision Tree Classifiers_**. These are rule-based classifiers and belong to the first generation of modern AI. Despite the fact that this algorithm has been used in practice for decades, its simplicity and effectiveness for routine classification task is still on par with more sophisticated approaches. They are quite common in the business world, because they have decent effectiveness without sacrificing explainability. Let's get started!
 
 ## Objectives
 
@@ -15,9 +15,9 @@ You will be able to:
 
 ## From Graphs to Decision Trees
 
-We have seen basic classification algorithms (a.k.a classifers), including Naive Bayes and signoid based logistic regression earlier. A decision tree is somewhat different type of classifier that performs through a **recursive partition of the sample space**. In this lesson, we shall get a conceptual understanding of how this is achieved. 
+We have seen basic classification algorithms (a.k.a classifers), including Naive Bayes and signoid based logistic regression in earlier lessons. A decision tree is somewhat different type of classifier that performs through a **recursive partition of the sample space**. In this lesson, we shall get a conceptual understanding of how this is achieved. 
 
-A decision tree comprises of decisions that originate from a chosen point in sample space. In terms of a graph theoretic understanding (recall the graph section), it is a **directed acyclic graph with a root called "root node" that has *no incoming edges***. All other nodes have one (and only one) incoming edge. Nodes having outgoing edges are known as **internal**nodes. All other nodes are called **leaves** . Nodes with an incoming edge, but no outgoing edge are called **terminal nodes**. 
+A decision tree comprises of decisions that originate from a chosen point in sample space. In terms of a graph theoretic understanding (recall the graph section), it is a **directed acyclic graph with a root called "root node" that has **no incoming edges**. All other nodes have one (and only one) incoming edge. Nodes having outgoing edges are known as **internal**nodes. All other nodes are called **leaves** . Nodes with an incoming edge, but no outgoing edge are called **terminal nodes**. 
 
 >__Directed Acyclic Graphs__
 
@@ -31,26 +31,14 @@ So a decision tree is effectively a DAG as the one seen above where **each inter
 
 In the simplest and most frequent case, each internal node considers a single attribute so that space is partitioned according to the attribute’s value. In the case of numeric attributes, the condition refers to a range. Let's see a bit more on this with a simple example below.
 
-<img src="dt4.png" width=600>
-
-Above, you can see that root node (testing color) acts as the first decision for feature "Color", creating three new paths. Based on the decision on the color being red green and blue. On the right side, you can see three primary partitions of our sample space. 
-
-If the color is identified as "Red", we don't do any further tests and thus all red objects belong to middle partition without any further sub partition. 
-
-For "Green" color, we do a further test on the attribute "Size". So for green objects, we further classify them into small green and large green objects. On the right we see the green sample space, further divided accordingly 
-
-
-For "Blue" color, we perform two further tests, if the blue objects are of round shape, we stop there and do not further partition the space. For square blue objects, we perform yet another test and see if they are "small blue square objects" or "large blue square objects". So in the blue partition, we can see that large square and small square are put into their own spaces. Here is another example for a decision tree made for taking decisions on 
-bank loan applications.
-
-<img src="dt7.gif" width=600>
+<img src="images/dt7.gif" width=600>
 
 So this is the basic idea behind decision trees , every internal node checks for a condition and performs a decision. Every terminal/lead node represents a discrete class. Decision tree induction is closely related to **rule induction**. In essence a decision tree is a just series of IF-ELSE statements (rules). Each path from the root of a decision tree to one of its leaves can be transformed into a rule simply by combining the decisions along the path to form the antecedent part, and taking the leaf’s class prediction as the class value.
 
 ## Definition
 > A decision tree is a DAG type of classifier where each branch node represents a choice between a number of alternatives and each leaf node represents a classification. An unknown (or test) instance is routed down the tree according to the values of the attributes in the successive nodes. When the instance reaches a leaf, it is classified according to the label assigned to the corresponded leaf.
 
-<img src="dt5.png" width=500>
+<img src="images/dt5.png" width=500>
 
 A real dataset would usually have a lot more features than the example above and will create much bigger trees, but the idea will remain exactly the same. The idea of feature importance is of high importance as selecting the correct feature to make a split that define complexity and effectiveness of the classification process. Regression trees are represented in the same manner, just they predict continuous values like price of a house. 
 
@@ -66,7 +54,7 @@ The process of training a decision tree and predicting the target features of qu
 
 4. Show a new set of features to the tree, with an unknown class and let the example propagate through a trained tree. Resulting leaf node represents the class predictions this data. 
 
-<img src="dt6.png" width=900>
+<img src="images/dt6.png" width=900>
 
 ## Splitting Criteria
 
@@ -77,15 +65,6 @@ There are couple of algorithms there to build a decision tree:
 
 * __CART (Classification and Regression Trees)__ uses Gini Indexas metric.
 * __ID3 (Iterative Dichotomiser 3)__ uses Entropy function and Information gain as metrics.
-
-Let's quickly see why using these cost criteria is imperative for building a tree. We shall try to develop an intuition using a simple example. Let’s just take a famous dataset in the machine learning world which is weather dataset(playing game Y or N based on weather condition).
-
-<img src="weather.jpeg" width=300>
-
-
-
-
-So We have four features - X (outlook,temp,humidity and windy) being categorical and one target - y (play Y or N) also categorical, and we need to learn the mapping between X and y. This is a binary classification problem and in order to create a tree, we need to have a root node first and need to decide which feature (outlook,temp,humidity and windy) to use first. Selecting the wrong feature can increase complexity of the tree and it is desired to keep the tree as short as possible. 
 
 ## Greedy Search 
 

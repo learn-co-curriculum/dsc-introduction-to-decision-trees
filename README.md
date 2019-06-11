@@ -15,14 +15,13 @@ You will be able to:
 
 ## From Graphs to Decision Trees
 
-We have seen basic classification algorithms (a.k.a classifers), including Naive Bayes and signoid based logistic regression in earlier lessons. A decision tree is somewhat different type of classifier that performs through a **recursive partition of the sample space**. In this lesson, we shall get a conceptual understanding of how this is achieved. 
+We have seen basic classification algorithms (a.k.a classifiers), including Naive Bayes and sigmoid based logistic regression in earlier lessons. A decision tree is somewhat different type of classifier that performs through a **recursive partition of the sample space**. In this lesson, we shall get a conceptual understanding of how this is achieved. 
 
 A decision tree comprises of decisions that originate from a chosen point in sample space. In terms of a graph theoretic understanding (recall the graph section), it is a **directed acyclic graph with a root called "root node" that has **no incoming edges**. All other nodes have one (and only one) incoming edge. Nodes having outgoing edges are known as **internal**nodes. All other nodes are called **leaves** . Nodes with an incoming edge, but no outgoing edge are called **terminal nodes**. 
 
 >__Directed Acyclic Graphs__
 
 > In computer science and mathematics, a directed acyclic graph (DAG) is a graph that is directed and without cycles connecting the other edges. This means that it is impossible to traverse the entire graph starting at one edge. The graph is a topological sorting, where each node is in a certain order.
-![](dtree.png)
 
 
 ## Partitioning the Sample Space
@@ -31,14 +30,14 @@ So a decision tree is effectively a DAG as the one seen above where **each inter
 
 In the simplest and most frequent case, each internal node considers a single attribute so that space is partitioned according to the attribute’s value. In the case of numeric attributes, the condition refers to a range. Let's see a bit more on this with a simple example below.
 
-<img src="images/dt7.gif" width=600>
+<img src="images/dt1.png" width="600">
 
 So this is the basic idea behind decision trees , every internal node checks for a condition and performs a decision. Every terminal/lead node represents a discrete class. Decision tree induction is closely related to **rule induction**. In essence a decision tree is a just series of IF-ELSE statements (rules). Each path from the root of a decision tree to one of its leaves can be transformed into a rule simply by combining the decisions along the path to form the antecedent part, and taking the leaf’s class prediction as the class value.
 
 ## Definition
 > A decision tree is a DAG type of classifier where each branch node represents a choice between a number of alternatives and each leaf node represents a classification. An unknown (or test) instance is routed down the tree according to the values of the attributes in the successive nodes. When the instance reaches a leaf, it is classified according to the label assigned to the corresponded leaf.
 
-<img src="images/dt5.png" width=500>
+<img src="images/dt2.png" width="850">
 
 A real dataset would usually have a lot more features than the example above and will create much bigger trees, but the idea will remain exactly the same. The idea of feature importance is of high importance as selecting the correct feature to make a split that define complexity and effectiveness of the classification process. Regression trees are represented in the same manner, just they predict continuous values like price of a house. 
 
@@ -50,11 +49,11 @@ The process of training a decision tree and predicting the target features of qu
 
 2. Train the tree model by making splits for the target using the values of predictors. The predictor to use gets selected following the idea of feature selection and uses measures like "__information gain__" and "__gini index__" etc. We shall cover these shortly. 
 
-3. Tree is grown untill some __stopping criteria__ is achieved. This could be a set depth of the tree or any other similar measure. 
+3. Tree is grown until some __stopping criteria__ is achieved. This could be a set depth of the tree or any other similar measure. 
 
 4. Show a new set of features to the tree, with an unknown class and let the example propagate through a trained tree. Resulting leaf node represents the class predictions this data. 
 
-<img src="images/dt6.png" width=900>
+<img src="images/dt3.png" width=650>
 
 ## Splitting Criteria
 
@@ -63,7 +62,7 @@ The training process of a decision tree can be generalized as "__Recursive binar
 
 There are couple of algorithms there to build a decision tree:
 
-* __CART (Classification and Regression Trees)__ uses Gini Indexas metric.
+* __CART (Classification and Regression Trees)__ uses Gini Index as a metric.
 * __ID3 (Iterative Dichotomiser 3)__ uses Entropy function and Information gain as metrics.
 
 ## Greedy Search 
@@ -71,7 +70,7 @@ There are couple of algorithms there to build a decision tree:
 We need to determine the attribute that __best__ classifies the training data, we use this attribute at the root of the tree. At each node, we repeat this process creating further splits, until a leaf node is achieved , i.e. all data gets classified.  
 > This means we are performing top-down, greedy search through the space of possible decision trees.
 
-In ordert identify the best attribute for ID3 classification trees, we use the "Information Gain" criteria.  Information gain (IG) measures how much “information” a feature gives us about the class. Decision Trees always try to maximize the Information gain. So an attribute with highest Information gain will tested/split first.
+In order to identify the best attribute for ID3 classification trees, we use the "Information Gain" criteria.  Information gain (IG) measures how much "information" a feature gives us about the class. Decision Trees always try to maximize the Information gain. So an attribute with highest Information gain will tested/split first.
 
 Let's move on to the next lesson where we shall look into this criteria with simple examples.
 

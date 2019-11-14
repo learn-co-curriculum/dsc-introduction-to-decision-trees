@@ -9,10 +9,10 @@ In this lesson, we'll take a look **_Decision tree classifiers_**. These are rul
 
 You will be able to: 
 
-- Understand and describe a decision tree algorithm in terms of graph architecture
+- Describe a decision tree algorithm in terms of graph architecture 
 - Describe how decision trees are used to create partitions in a sample space
-- Have an overview of the training and prediction stages involved decision tree classification
-- Understand the importance of a cost function for decision trees
+- Describe the training and prediction process of a decision tree 
+
 
 ## From graphs to decision trees
 

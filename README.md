@@ -1,3 +1,4 @@
+
 # Introduction to Decision Trees
 
 ## Introduction
@@ -88,8 +89,3 @@ Let's move on to the next lesson where we shall look into these criteria with si
 ## Summary 
 
 In this lesson, we saw an introduction to decision trees as simple yet effective classifiers. We looked at how decision trees partition the sample space based on learning rules from a given dataset. We also looked at how feature selection for splitting the tree is of such high importance. Next, we shall look at information gain criteria used for feature selection.
-
-
-```python
-
-```

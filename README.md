@@ -33,7 +33,7 @@ In the simplest and most frequent case, each internal node considers a single at
 
 <img src="images/dt1.png" width="600">
 
-This is the basic idea behind decision trees: every internal node checks for a condition and performs a decision, and every terminal node (AKA leaf node) represents a discrete class. Decision tree induction is closely related to **rule induction**. In essence, a decision tree is a just series of IF-ELSE statements (rules). Each path from the root of a decision tree to one of its leaves can be transformed into a rule simply by combining the decisions along the path to form the antecedent, and taking the leaf’s class prediction as the consequence (IF-ELSE statements follow the form: IF _andecedent_ THEN _consequence_
+This is the basic idea behind decision trees: every internal node checks for a condition and performs a decision, and every terminal node (AKA leaf node) represents a discrete class. Decision tree induction is closely related to **rule induction**. In essence, a decision tree is a just series of IF-ELSE statements (rules). Each path from the root of a decision tree to one of its leaves can be transformed into a rule simply by combining the decisions along the path to form the antecedent, and taking the leaf’s class prediction as the consequence (IF-ELSE statements follow the form: IF _antecedent_ THEN _consequence_
 ).
 
 ## Definition

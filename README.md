@@ -1,9 +1,8 @@
-
 # Introduction to Decision Trees
 
 ## Introduction
 
-In this lesson, we'll take a look at **_decision tree classifiers_**. These are rule-based classifiers and belong to the first generation of modern AI. Despite the fact that this algorithm has been used in practice for decades, its simplicity and effectiveness for routine classification tasks are still on par with more sophisticated approaches. They are quite common in the business world because they have decent effectiveness without sacrificing explainability. Let's get started!
+In this lesson, we'll take a look at **_decision tree classifiers_**. These are rule-based classifiers and belong to the first generation of modern AI. Despite the fact that this algorithm has been used in practice for decades, its simplicity and effectiveness for routine classification tasks is still on par with more sophisticated approaches. They are quite common in the business world because they have decent effectiveness without sacrificing explainability. Let's get started!
 
 ## Objectives
 
@@ -16,9 +15,9 @@ You will be able to:
 
 ## From graphs to decision trees
 
-Similar to logistic regression, a decision tree is a classifier that performs a **recursive partition of the sample space**. In this lesson, you will get a conceptual understanding of how this is achieved. 
+We have seen basic classification algorithms (a.k.a classifiers), including Naive Bayes and logistic regression, in earlier sections. A decision tree is a different type of classifier that performs a **recursive partition of the sample space**. In this lesson, you will get a conceptual understanding of how this is achieved. 
 
-A decision tree is comprised of decisions that originate from a chosen point in sample space. If you are familiar with Graph theory, a tree is a **directed acyclic graph with a root called "root node" that has no incoming edges**. All other nodes have one (and only one) incoming edge. Nodes having outgoing edges are known as **internal** nodes. All other nodes are called **leaves**. Nodes with an incoming edge, but no outgoing edges, are called **terminal nodes**. 
+A decision tree comprises of decisions that originate from a chosen point in sample space. If you are familiar with Graph theory, a tree is a **directed acyclic graph with a root called "root node" that has no incoming edges**. All other nodes have one (and only one) incoming edge. Nodes having outgoing edges are known as **internal** nodes. All other nodes are called **leaves**. Nodes with an incoming edge, but no outgoing edges, are called **terminal nodes**. 
 
 >__Directed Acyclic Graphs__
 >
@@ -31,7 +30,7 @@ So, a decision tree is effectively a DAG, such as the one seen below where **eac
 
 In the simplest and most frequent case, each internal node considers a single attribute so that space is partitioned according to the attribute’s value. In the case of numeric attributes, the condition refers to a range. 
 
-<img src="images/dt1.png" width="600">
+<img src="https://curriculum-content.s3.amazonaws.com/data-science/images/dt1.png" width="600">
 
 This is the basic idea behind decision trees: every internal node checks for a condition and performs a decision, and every terminal node (AKA leaf node) represents a discrete class. Decision tree induction is closely related to **rule induction**. In essence, a decision tree is a just series of IF-ELSE statements (rules). Each path from the root of a decision tree to one of its leaves can be transformed into a rule simply by combining the decisions along the path to form the antecedent, and taking the leaf’s class prediction as the consequence (IF-ELSE statements follow the form: IF _antecedent_ THEN _consequence_
 ).
@@ -40,7 +39,7 @@ This is the basic idea behind decision trees: every internal node checks for a c
 
 > A decision tree is a DAG type of classifier where each internal node represents a choice between a number of alternatives and each leaf node represents a classification. An unknown (or test) instance is routed down the tree according to the values of the attributes in the successive nodes. When the instance reaches a leaf, it is classified according to the label assigned to the corresponded leaf.
 
-<img src="images/dt2.png" width="850">
+<img src="https://curriculum-content.s3.amazonaws.com/data-science/images/dt2.png" width="850">
 
 A real dataset would usually have a lot more features than the example above and will create much bigger trees, but the idea will remain exactly the same. The idea of feature importance is crucial to decision trees, since selecting the correct feature to make a split on will affect the complexity and efficacy of the classification process. Regression trees are represented in the same manner, but instead they predict continuous values like the price of a house. 
 
@@ -56,7 +55,7 @@ The process of training a decision tree and predicting the target features of a 
 
 4. Show a new set of features to the tree, with an unknown class and let the example propagate through a trained tree. The resulting leaf node represents the class prediction for this example datum. 
 
-<img src="images/dt3.png" width=650>
+<img src="https://curriculum-content.s3.amazonaws.com/data-science/images/dt3.png" width=650>
 
 
 ## Splitting criteria
